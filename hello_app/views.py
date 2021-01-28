@@ -33,3 +33,17 @@ def hello_there(name = None):
 @app.route("/api/data")
 def get_data():
     return app.send_static_file("data.json")
+
+@app.route("/api/exception")
+def badder_stuff():
+    # Use properties in exception logs
+    programming_languages = ["Java", "Python", "C++"]
+    language = programming_languages[100]
+    return "uho"
+
+@app.errorhandler(500)
+def handle_internal_server_error(e):
+    original = getattr(e, "original_exception", None)
+    print(original)
+    logger.exception('Captured an exception.', exc_info=original)
+    return render_template('500.html'), 500
