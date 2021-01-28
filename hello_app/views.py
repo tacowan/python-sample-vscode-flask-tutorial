@@ -1,6 +1,13 @@
+import logging
 from datetime import datetime
 from flask import Flask, render_template
 from . import app
+from opencensus.ext.azure.log_exporter import AzureLogHandler
+
+logger = logging.getLogger(__name__)
+logger.addHandler(AzureLogHandler(
+    connection_string='InstrumentationKey=' + app.config['APPINSIGHTS_INSTRUMENTATIONKEY'])
+)
 
 @app.route("/")
 def home():

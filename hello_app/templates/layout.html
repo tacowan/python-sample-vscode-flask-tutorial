@@ -13,7 +13,7 @@
             //useXhr: 1, // Use XHR instead of fetch to report failures (if available),
             //crossOrigin: "anonymous", // When supplied this will add the provided value as the cross origin attribute on the script tag 
             cfg: { // Application Insights Configuration
-                instrumentationKey: "[your key]"
+                instrumentationKey: "{{config.APPINSIGHTS_INSTRUMENTATIONKEY }}"
                 /* ...Other Configuration Options... */
             }});
         </script>

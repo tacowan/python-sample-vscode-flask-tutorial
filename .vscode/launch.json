@@ -64,7 +64,9 @@
             "request": "launch",
             "module": "flask",
             "env": {
-                "FLASK_APP": "hello_app.webapp"                
+                "FLASK_APP": "hello_app.webapp",
+                "APPINSIGHTS_INSTRUMENTATIONKEY": "[your key]"
+                 
             },
             "args": [
                 "run",
@@ -105,7 +107,7 @@
             "name": "Python: All debug Options",
             "type": "python",
             "request": "launch",
-            "pythonPath": "${config:python.pythonPath}",
+            "python": "${command:python.interpreterPath}",
             "program": "${file}",
             "module": "module.name",
             "env": {
